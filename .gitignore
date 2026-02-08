@@ -1,0 +1,38 @@
+# =========================
+# Python Virtual Environment
+# =========================
+.venv/
+env/
+venv/
+
+# =========================
+# Python cache files
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# Environment variables / secrets
+# =========================
+.env
+.env.*
+
+# =========================
+# OS & Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Jupyter / IPython
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Logs
+# =========================
+*.log
