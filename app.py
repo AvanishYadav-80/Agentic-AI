@@ -1,7 +1,6 @@
 import streamlit as st
 from agent import agent_decide
 from memory import clear_memory
-from streamlit_mic_recorder import mic_recorder
 
 
 # ---------------- PAGE CONFIG ----------------
