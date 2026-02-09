@@ -1,7 +1,6 @@
 import streamlit as st
 from agent import agent_decide
 from memory import clear_memory
-from streamlit_mic_recorder import mic_recorder
 
 
 # ---------------- PAGE CONFIG ----------------
@@ -100,7 +99,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 audio = None  # ✅ important
 
 with st.form("chat_form", clear_on_submit=True):
-    col1, col2, col3 = st.columns([5, 1, 1])
+    col1, col2 = st.columns([6, 1])
 
     with col1:
         user_input = st.text_input(
@@ -111,9 +110,7 @@ with st.form("chat_form", clear_on_submit=True):
 
     with col2:
         submit = st.form_submit_button("➤")
-
-    with col3:
-        audio = mic_recorder(start_prompt="🎤", stop_prompt="⏹️", just_once=True)
+        
 
 # ---------------- HANDLE TEXT MESSAGE ----------------
 if submit and user_input:
@@ -126,19 +123,6 @@ if submit and user_input:
 
     st.rerun()
 
-
-# ---------------- VOICE INPUT HANDLING ----------------
-if audio and "text" in audio:
-    spoken_text = audio["text"]
-
-    st.session_state.messages.append({"role": "user", "content": spoken_text})
-
-    with st.spinner("🤖 Agent is thinking..."):
-        response, tool_used = agent_decide(spoken_text, st.session_state.agent_role)
-
-    st.session_state.messages.append({"role": "assistant", "content": response})
-
-    st.rerun()
 
 # ---------------- FOOTER ----------------
 st.markdown("---")
