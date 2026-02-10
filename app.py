@@ -2,8 +2,8 @@ import streamlit as st
 from agent import agent_decide
 from memory import clear_memory
 
-# st.cache_data.clear()
-# st.cache_resource.clear()
+st.cache_data.clear()
+st.cache_resource.clear()
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="Agentic AI Assistant", page_icon="🤖", layout="centered")
